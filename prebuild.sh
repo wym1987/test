@@ -1,16 +1,9 @@
-sudo apt-get update
-sudo apt-get install -y openjdk-8-jdk
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export PATH=$PATH:$JAVA_HOME/bin
-# Clone AOSP repository
-#- git clone https://android.googlesource.com/platform/manifest -b android-13.0.0_r43 aosp
-# Initialize the AOSP build environment
-sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
-sudo chmod a+x /usr/bin/repo
-repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-13.0.0_r43 aosp
-repo sync -j8
-cd aosp
-source build/envsetup.sh
-lunch aosp_arm-eng  # Choose your target lunch configuration
-# Build Android
-make -j$(nproc)
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+dpkg-reconfigure locales
+
+sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt install -y tzdata && sudo apt-get install -y git curl wget apt-utils rsync
+
+sudo apt-get update && sudo apt-get install gh -y

@@ -15,3 +15,7 @@ build_task:
     - git clone https://github.com/wym1987/test.git test
     - mv test/*.sh .
     - bash ./prebuild.sh
+  matrix:
+    - name: arm64 android-13.0.0_r43 build
+      build_script: bash ./compile-arm64-emulator-kernel-q.sh
+      #publish_script: bash ./publish-arm64-emulator-kernel-q.sh
