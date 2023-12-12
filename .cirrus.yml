@@ -13,5 +13,5 @@ build_task:
   prepare_script:
     - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git curl sudo apt-utils tzdata rsync
     - git clone https://github.com/wym1987/test.git test
-    - mv ebpf-ci-test/*.sh .
+    - mv test/*.sh .
     - bash ./prebuild.sh
