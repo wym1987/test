@@ -14,7 +14,7 @@ build_task:
     - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git curl sudo apt-utils tzdata rsync
     - git clone https://github.com/wym1987/test.git test
     - mv test/*.sh .
-    #- bash ./prebuild.sh
+    - bash ./prebuild.sh
   matrix:
     - name: arm64 android-13.0.0_r43 build
       build_script: bash ./android-13.0.0_r43.sh
