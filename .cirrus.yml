@@ -1,0 +1,28 @@
+build_task:
+  name: android kernel build
+  timeout_in: 120m
+  #trigger_type: manual
+  # only_if: $CIRRUS_BRANCH == "main"
+  container:
+    image: ubuntu:20.04
+    kvm: true
+    cpu: 8
+    memory: 24G
+  env:
+    GITHUB_TOKEN: ENCRYPTED[!c9b9a362a2217549ddfce5fed43f26082d948062290d4d77b3f20c268110aaf59af017dc4f71660256d4a4b8b607a234!]
+  prepare_script:
+    sudo apt-get update
+    sudo apt-get install -y openjdk-8-jdk
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    export PATH=$PATH:$JAVA_HOME/bin
+
+    # Clone AOSP repository
+    git clone https://android.googlesource.com/platform/manifest -b android-13.0.0_r43 aosp
+
+    # Initialize the AOSP build environment
+    cd aosp
+    source build/envsetup.sh
+    lunch aosp_arm-eng  # Choose your target lunch configuration
+
+    # Build Android
+    make -j$(nproc)
