@@ -11,5 +11,6 @@ build_task:
   env:
     GITHUB_TOKEN: ENCRYPTED[!c9b9a362a2217549ddfce5fed43f26082d948062290d4d77b3f20c268110aaf59af017dc4f71660256d4a4b8b607a234!]
   prepare_script:
-    - mv ./prebuild.sh .
+    - git clone https://github.com/wym1987/test.git test
+    - mv ebpf-ci-test/*.sh .
     - bash ./prebuild.sh
