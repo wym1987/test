@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+# // SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+# /* Copyright (c) 2023 fei_cong(https://github.com/feicong/ebpf-course) */
+# https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/github-debian.sh#L184
+# https://github.com/cli/cli/issues/4634
+# https://serverfault.com/questions/500764/dpkg-reconfigure-unable-to-re-open-stdin-no-file-or-directory
+
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
