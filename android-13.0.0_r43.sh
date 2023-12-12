@@ -13,10 +13,10 @@ sudo apt-get install -y git-core gnupg flex bison build-essential zip curl zlib1
  # for emulators
 sudo apt-get install -y libxtst6 libnss3-dev libnspr4 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgdk-pixbuf2.0-0 -y
 
-sudo locale-gen en_US.UTF-8
-export LANG=en_US.UTF-8 \
-    LC_ALL=en_US.UTF-8 \
-    LANGUAGE=en_US:en
+#sudo locale-gen en_US.UTF-8
+#export LANG=en_US.UTF-8 \
+    #LC_ALL=en_US.UTF-8 \
+    #LANGUAGE=en_US:en
 
 mkdir -p ~/.bin
 PATH="${HOME}/.bin:${PATH}"
